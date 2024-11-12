@@ -21,6 +21,130 @@ var respostasI7 = [];
 var respostasDualCore = [];
 var respostasQuadCore = [];
 
+document.addEventListener("keydown", (e) => {
+  if(e.key == "Backspace"){
+    if(e.target.id.includes("letrasCPU")){
+      var idInput = Number(e.target.id.split('letrasCPU')[1]);  
+      var idAnterior = idInput - 1;
+      var inputAnterior = document.getElementById(`letrasCPU${idAnterior}`);
+      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
+
+      if(inputAnterior != null){
+        e.target.value = "";
+        inputAnterior.focus();
+        e.preventDefault();
+      }else{
+        e.target.value = "";
+      }
+    }
+
+    if(e.target.id.includes("letrasULA")){
+      var idInput = Number(e.target.id.split('letrasULA')[1]);  
+      var idAnterior = idInput - 1;
+      var inputAnterior = document.getElementById(`letrasULA${idAnterior}`);
+      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
+
+      if(inputAnterior != null){
+        e.target.value = "";
+        inputAnterior.focus();
+        e.preventDefault();
+      }else{
+        e.target.value = "";
+      }
+    }
+
+    if(e.target.id.includes("letrasRegistradores")){
+      var idInput = Number(e.target.id.split('letrasRegistradores')[1]);  
+      var idAnterior = idInput - 1;
+      var inputAnterior = document.getElementById(`letrasRegistradores${idAnterior}`);
+      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
+
+      if(inputAnterior != null){
+        e.target.value = "";
+        inputAnterior.focus();
+        e.preventDefault();
+      }else{
+        e.target.value = "";
+      }
+    }
+
+    if(e.target.id.includes("letrasRAM")){
+      var idInput = Number(e.target.id.split('letrasRAM')[1]);  
+      var idAnterior = idInput - 1;
+      var inputAnterior = document.getElementById(`letrasRAM${idAnterior}`);
+      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
+
+      if(inputAnterior != null){
+        e.target.value = "";
+        inputAnterior.focus();
+        e.preventDefault();
+      }else{
+        e.target.value = "";
+      }
+    }
+
+    if(e.target.id.includes("letrasROM")){
+      var idInput = Number(e.target.id.split('letrasROM')[1]);  
+      var idAnterior = idInput - 1;
+      var inputAnterior = document.getElementById(`letrasROM${idAnterior}`);
+      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
+
+      if(inputAnterior != null){
+        e.target.value = "";
+        inputAnterior.focus();
+        e.preventDefault();
+      }else{
+        e.target.value = "";
+      }
+    }
+
+    if(e.target.id.includes("letrasEPROM")){
+      var idInput = Number(e.target.id.split('letrasEPROM')[1]);  
+      var idAnterior = idInput - 1;
+      var inputAnterior = document.getElementById(`letrasEPROM${idAnterior}`);
+      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
+
+      if(inputAnterior != null){
+        e.target.value = "";
+        inputAnterior.focus();
+        e.preventDefault();
+      }else{
+        e.target.value = "";
+      }
+    }
+
+    if(e.target.id.includes("letrasFLASH")){
+      var idInput = Number(e.target.id.split('letrasFLASH')[1]);  
+      var idAnterior = idInput - 1;
+      var inputAnterior = document.getElementById(`letrasFLASH${idAnterior}`);
+      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
+
+      if(inputAnterior != null){
+        e.target.value = "";
+        inputAnterior.focus();
+        e.preventDefault();
+      }else{
+        e.target.value = "";
+      }
+    }
+
+    if(e.target.id.includes("letrasMemoriaDeMassa")){
+      var idInput = Number(e.target.id.split('letrasMemoriaDeMassa')[1]);  
+      var idAnterior = idInput - 1;
+      var inputAnterior = document.getElementById(`letrasMemoriaDeMassa${idAnterior}`);
+      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
+
+      if(inputAnterior != null){
+        e.target.value = "";
+        inputAnterior.focus();
+        e.preventDefault();
+      }else{
+        e.target.value = "";
+      }
+    }
+  }
+});
+
 // Função para gerenciar as entradas para a palavra "CPU"
 function entradaUsuarioCPU(input) {
   var idInput = Number(input.id.split('letrasCPU')[1]);
@@ -43,10 +167,41 @@ function entradaUsuarioCPU(input) {
       alert(`A palavra não está correta. Tente novamente.`);
     }
   } else {
+    input.blur();
     proxInput.focus();
   }
 }
 
+// Outras funções de entrada podem seguir o mesmo padrão.
+
+
+
+''// Função para gerenciar as entradas para a palavra "CPU"
+function entradaUsuarioCPU(input) {
+  var idInput = Number(input.id.split('letrasCPU')[1]);
+  var proximoId = idInput + 1;
+  var listaRespostas = respostasCPU;
+  
+  var letra = input.value.toUpperCase();
+  listaRespostas[idInput - 1] = letra;
+
+  var proxInput = document.getElementById(`letrasCPU${proximoId}`);
+  
+  if (proxInput == null) {
+    var palavraFinal = listaRespostas.join('');
+    var acertou = palavraFinal === special_words[0];
+    console.log(acertou + " " + palavraFinal);
+
+    if (acertou) {
+      alert(`Você acertou a palavra: ${palavraFinal}!`);
+    } else {
+      alert(`A palavra não está correta. Tente novamente.`);
+    }
+  } else {
+    input.blur();
+    proxInput.focus();
+  }
+}
 // Função para gerenciar as entradas para a palavra "ULA"
 function entradaUsuarioULA(input) {
   var idInput = Number(input.id.split('letrasULA')[1]);
@@ -68,7 +223,8 @@ function entradaUsuarioULA(input) {
     } else {
       alert(`A palavra não está correta. Tente novamente.`);
     }
-  } else {
+  } else {  
+    input.blur();
     proxInput.focus();
   }
 }
@@ -95,6 +251,7 @@ function entradaUsuarioRegistradores(input) {
       alert(`A palavra não está correta. Tente novamente.`);
     }
   } else {
+    input.blur();
     proxInput.focus();
   }
 }
@@ -121,6 +278,7 @@ function entradaUsuarioRAM(input) {
       alert(`A palavra não está correta. Tente novamente.`);
     }
   } else {
+    input.blur();
     proxInput.focus();
   }
 }
@@ -147,6 +305,7 @@ function entradaUsuarioROM(input) {
       alert(`A palavra não está correta. Tente novamente.`);
     }
   } else {
+    input.blur();
     proxInput.focus();
   }
 }
@@ -173,6 +332,7 @@ function entradaUsuarioEPROM(input) {
       alert(`A palavra não está correta. Tente novamente.`);
     }
   } else {
+    input.blur();
     proxInput.focus();
   }
 }
@@ -199,6 +359,7 @@ function entradaUsuarioFLASH(input) {
       alert(`A palavra não está correta. Tente novamente.`);
     }
   } else {
+    input.blur();
     proxInput.focus();
   }
 }
@@ -225,11 +386,18 @@ function entradaUsuarioMemoriaDeMassa(input) {
       alert(`A palavra não está correta. Tente novamente.`);
     }
   } else {
+    input.blur();
     proxInput.focus();
   }
 }
 
 // E assim por diante para as demais palavras...
+
+
+
+
+
+
 
 
 function start() {
@@ -240,4 +408,4 @@ function start() {
   container.style.display = "flex";
 
   div_lista.style.display = "flex";
-}
+}''
