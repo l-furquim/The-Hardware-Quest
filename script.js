@@ -162,7 +162,7 @@ function entradaUsuarioCPU(input) {
     console.log(acertou + " " + palavraFinal);
 
     if (acertou) {
-
+      // document.getElementById("pCPU").style.color = "green";
     } else {
 
     }
