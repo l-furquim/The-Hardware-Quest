@@ -162,9 +162,9 @@ function entradaUsuarioCPU(input) {
     console.log(acertou + " " + palavraFinal);
 
     if (acertou) {
-      alert(`Você acertou a palavra: ${palavraFinal}!`);
+
     } else {
-      alert(`A palavra não está correta. Tente novamente.`);
+
     }
   } else {
     input.blur();
@@ -193,9 +193,9 @@ function entradaUsuarioCPU(input) {
     console.log(acertou + " " + palavraFinal);
 
     if (acertou) {
-      alert(`Você acertou a palavra: ${palavraFinal}!`);
+
     } else {
-      alert(`A palavra não está correta. Tente novamente.`);
+
     }
   } else {
     input.blur();
@@ -219,9 +219,9 @@ function entradaUsuarioULA(input) {
     console.log(acertou + " " + palavraFinal);
 
     if (acertou) {
-      alert(`Você acertou a palavra: ${palavraFinal}!`);
+
     } else {
-      alert(`A palavra não está correta. Tente novamente.`);
+
     }
   } else {  
     input.blur();
@@ -246,9 +246,9 @@ function entradaUsuarioRegistradores(input) {
     console.log(acertou + " " + palavraFinal);
 
     if (acertou) {
-      alert(`Você acertou a palavra: ${palavraFinal}!`);
+
     } else {
-      alert(`A palavra não está correta. Tente novamente.`);
+
     }
   } else {
     input.blur();
@@ -273,9 +273,9 @@ function entradaUsuarioRAM(input) {
     console.log(acertou + " " + palavraFinal);
 
     if (acertou) {
-      alert(`Você acertou a palavra: ${palavraFinal}!`);
+
     } else {
-      alert(`A palavra não está correta. Tente novamente.`);
+
     }
   } else {
     input.blur();
@@ -300,9 +300,9 @@ function entradaUsuarioROM(input) {
     console.log(acertou + " " + palavraFinal);
 
     if (acertou) {
-      alert(`Você acertou a palavra: ${palavraFinal}!`);
+
     } else {
-      alert(`A palavra não está correta. Tente novamente.`);
+
     }
   } else {
     input.blur();
@@ -327,9 +327,9 @@ function entradaUsuarioEPROM(input) {
     console.log(acertou + " " + palavraFinal);
 
     if (acertou) {
-      alert(`Você acertou a palavra: ${palavraFinal}!`);
+
     } else {
-      alert(`A palavra não está correta. Tente novamente.`);
+
     }
   } else {
     input.blur();
@@ -354,9 +354,9 @@ function entradaUsuarioFLASH(input) {
     console.log(acertou + " " + palavraFinal);
 
     if (acertou) {
-      alert(`Você acertou a palavra: ${palavraFinal}!`);
+
     } else {
-      alert(`A palavra não está correta. Tente novamente.`);
+
     }
   } else {
     input.blur();
@@ -381,9 +381,9 @@ function entradaUsuarioMemoriaDeMassa(input) {
     console.log(acertou + " " + palavraFinal);
 
     if (acertou) {
-      alert(`Você acertou a palavra: ${palavraFinal}!`);
+
     } else {
-      alert(`A palavra não está correta. Tente novamente.`);
+
     }
   } else {
     input.blur();
