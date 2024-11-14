@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css">
     <title>Palavras-Cruzadas, Luiza & Lucas</title>
     <link rel="stylesheet" href="./style.css">
-    <script src="./script.js"></script>
+
 </head>
 
 
@@ -57,27 +57,27 @@
                         2. É um componente da CPU que realiza operações lógicas e aritméticas 
                     </p><br> <br>
 
-                    <p class="p-pergunta" id="pRegistradores">
+                    <p class="p-pergunta" id="pREGISTRADORES">
                         3. Memórias de alta velocidade dentro da CPU que armazenam os dados que a CPU está a processar
                     </p><br> <br>
                     
-                    <p class="p-pergunta" id="pMemoriaRAM">
+                    <p class="p-pergunta" id="pRAM">
                         4. Memória responsável por armazenar informações temporárias que o computador necessita?
                     </p><br>
                     
-                   <p class="p-pergunta" id="pMemoriaROM">
+                   <p class="p-pergunta" id="pROM">
                         5. Memória responsável por armazenar dados do fimware ? 
-                   </p><br>
+                   </p><br><br>
                     
-                   <p class="p-pergunta" id="pMemoriaEprom">
+                   <p class="p-pergunta" id="pEPROM">
                         6. Memória responsável por armazenar dados não voláteis que precisam ser acessados depois da alimentação ser interrompida? 
-                   </p><br>
+                   </p><br> <br>
 
-                   <p class="p-pergunta" id="pFlash">
+                   <p class="p-pergunta" id="pFLASH">
                         7. Nome da unidade de armazenamento dinâmica que permite o backup de dados e transferência dos mesmos entre dispositivos? 
                    </p><br>
 
-                    <p class="p-pergunta" id="pMemoriaMassa">
+                    <p class="p-pergunta" id="pMEMORIADEMASSA">
                         8. Memória de grande porte responsável por armazenar os dados não voláteis que precisam ser recuperados a qualquer momento 
                     </p><br>
  
@@ -86,25 +86,32 @@
                     </p><br> <br>
 
                     <p class="p-pergunta" id="pCS">
-                        10. é um comando que informa a um periférico que ele deve receber ou enviar dados
+                        10.Pino de comando que informa a um periférico que ele deve receber ou enviar dados
                     </p> <br> <br>
 
-                    <p class="p-pergunta">
-                        11. Um deles transporta os dados entre o processador e os outros componentes e o outro 
-                    transporta os endereços de memória do processador para outros componentes 
+                    <p class="p-pergunta" id="pADRESSBUS">
+                        11. Componente responsável por indicar a localização que dos dados ou de onde devem ser enviados, o famoso GPS do computador.
                     </p><br> <br>
 
-                   <p class="p-pergunta">
-                        12. É indicado para atividades diárias, como navegar na internet, trabalhar e jogar jogos leves
-                        já o outro é melhor para aplicativos especializados, jogos de última 
-                        geração e para executar várias tarefas ao mesmo tempo. 
+                    <p class="p-pergunta"id="pDATABUS">
+                        12. Componente responsável por permitir que diferentes partes, como o processador (CPU), a memória e outros componentes, conversem entre si. 
+                    </p> <br><br>
+
+                   <p class="p-pergunta" id="pI5">
+                        13. Primeira Geração de processadores da intel que lançaram o suporte aprimorado para DDR3L (Low Voltage) e LPDDR3 (para dispositivos móveis), o que ajudou a reduzir o consumo de energia associado à memória.
                    </p>
                     <br> <br>
 
-                        <p class="p-pergunta">
-                                9. É uma CPU com dois núcleos de processamento, que divide as tarefas entre si e o CPF com quatro núcleos 
-                        </p><br> <br>
-                </p>
+                   <p class="p-pergunta" id="pI7">
+                        14. Geração de processadores da intel que possuem 4 núcleos físicos e 8 threads graças a tecnologia Hyper-Threading
+                   </p> <br><br>
+
+                    <p class="p-pergunta"id="pDUALCORE">
+                        15. Tipo de processador que possui dois núcleos, permitindo que  execute duas tarefas simultaneamente, ideal para tarefas básicas e menor consumo de energia
+                    <p><br>
+                    <p class="p-pergunta" id="pQUADCORE">
+                        16. Tipo de processador que possui quatro núcleos, permitindo maior capacidade de multitarefa e sendo mais eficiente para jogos e programas que exigem mais processamento
+                    </p>
 
                 </div>
                 <br>
@@ -112,131 +119,123 @@
                 <br>
                 <div style="display: none" id="div_questions">
                     <center>
-                        <!-- <span id="span_questionText">Vamos encontrar as esferas do dragao</span>
-                        <input type="text" id="input_answer" placeholder="Sua Reposta"><br>
-                        <button id="button_verify" onclick="verify()" class="button"q>Verificar</button> -->
-
                         <table class="tabela-letras">
-                            <!-- Linha para a palavra "CPU" -->
-                            <tr>
-                                <td><input oninput="entradaUsuarioCPU(this)" class="input-cpu" id="letrasCPU1"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioCPU(this)" class="input-cpu" id="letrasCPU2"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioCPU(this)" class="input-cpu" id="letrasCPU3"
-                                        maxlength="1" type="text"></td>
-                            </tr>
-
-                            <!-- Linha para a palavra "ULA" -->
-                            <tr>
-                                <td><input oninput="entradaUsuarioULA(this)" id="letrasULA1" maxlength="1" type="text">
-                                </td>
-                                <td><input oninput="entradaUsuarioULA(this)" id="letrasULA2" maxlength="1" type="text">
-                                </td>
-                                <td><input oninput="entradaUsuarioULA(this)" id="letrasULA3" maxlength="1" type="text">
-                                </td>
-                            </tr>
-
-                            <!-- Linha para a palavra "Registradores" -->
-                            <tr>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores1"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores2"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores3"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores4"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores5"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores6"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores7"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores8"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores9"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores10"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores11"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores12"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores13"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores14"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioRegistradores(this)" id="letrasRegistradores15"
-                                        maxlength="1" type="text"></td>
-                            </tr>
-
-                            <!-- Linha para a palavra "RAM" -->
-                            <tr>
-                                <td><input oninput="entradaUsuarioRAM(this)" id="letrasRAM1" maxlength="1" type="text">
-                                </td>
-                                <td><input oninput="entradaUsuarioRAM(this)" id="letrasRAM2" maxlength="1" type="text">
-                                </td>
-                                <td><input oninput="entradaUsuarioRAM(this)" id="letrasRAM3" maxlength="1" type="text">
-                                </td>
-                            </tr>
-
-                            <!-- Linha para a palavra "ROM" -->
-                            <tr>
-                                <td><input oninput="entradaUsuarioROM(this)" id="letrasROM1" maxlength="1" type="text">
-                                </td>
-                                <td><input oninput="entradaUsuarioROM(this)" id="letrasROM2" maxlength="1" type="text">
-                                </td>
-                                <td><input oninput="entradaUsuarioROM(this)" id="letrasROM3" maxlength="1" type="text">
-                                </td>
-                            </tr>
-
-                            <!-- Linha para a palavra "EPROM" -->
-                            <tr>
-                                <td><input oninput="entradaUsuarioEPROM(this)" id="letrasEPROM1" maxlength="1"
-                                        type="text"></td>
-                                <td><input oninput="entradaUsuarioEPROM(this)" id="letrasEPROM2" maxlength="1"
-                                        type="text"></td>
-                                <td><input oninput="entradaUsuarioEPROM(this)" id="letrasEPROM3" maxlength="1"
-                                        type="text"></td>
-                                <td><input oninput="entradaUsuarioEPROM(this)" id="letrasEPROM4" maxlength="1"
-                                        type="text"></td>
-                            </tr>
-
-                            <!-- Linha para a palavra "FLASH" -->
-                            <tr>
-                                <td><input oninput="entradaUsuarioFLASH(this)" id="letrasFLASH1" maxlength="1"
-                                        type="text"></td>
-                                <td><input oninput="entradaUsuarioFLASH(this)" id="letrasFLASH2" maxlength="1"
-                                        type="text"></td>
-                                <td><input oninput="entradaUsuarioFLASH(this)" id="letrasFLASH3" maxlength="1"
-                                        type="text"></td>
-                                <td><input oninput="entradaUsuarioFLASH(this)" id="letrasFLASH4" maxlength="1"
-                                        type="text"></td>
-                            </tr>
-
-                            <!-- Linha para a palavra "Memória de Massa" -->
-                            <tr>
-                                <td><input oninput="entradaUsuarioMemoriaDeMassa(this)" id="letrasMemoriaDeMassa1"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioMemoriaDeMassa(this)" id="letrasMemoriaDeMassa2"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioMemoriaDeMassa(this)" id="letrasMemoriaDeMassa3"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioMemoriaDeMassa(this)" id="letrasMemoriaDeMassa4"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioMemoriaDeMassa(this)" id="letrasMemoriaDeMassa5"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioMemoriaDeMassa(this)" id="letrasMemoriaDeMassa6"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioMemoriaDeMassa(this)" id="letrasMemoriaDeMassa7"
-                                        maxlength="1" type="text"></td>
-                                <td><input oninput="entradaUsuarioMemoriaDeMassa(this)" id="letrasMemoriaDeMassa8"
-                                        maxlength="1" type="text"></td>
-                            </tr>
+                            <tbody>
+                                <tr>
+                                  <td><input id="letrasCPU1" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                  <td><input id="letrasCPU2" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                  <td><input id="letrasCPU3" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                </tr>
+    
+                                <tr>
+                                  <td><input id="letrasULA1" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                  <td><input id="letrasULA2" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                  <td><input id="letrasULA3" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                </tr>
+                              <tr>
+                                <td><input id="letrasFLASH1" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasFLASH2" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasFLASH3" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasFLASH4" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasFLASH5" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                              </tr>
+                              
+  
+                              <tr>
+                                <td><input id="letrasMEMORIADEMASA1" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA2" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA3" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA4" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA5" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA6" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA7" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA8" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA9" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA10" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA11" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA12" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA13" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA14" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA15" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasMEMORIADEMASA16" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                              </tr>
+  
+                              <tr>
+                                <td><input id="letrasDMA1" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDMA2" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDMA3" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                              </tr>
+                              
+  
+                              <tr>
+                                <td><input id="letrasCS1" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasCS2" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                              </tr>
+                              
+  
+                              <tr>
+                                <td><input id="letrasADRESSBUS1" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasADRESSBUS2" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasADRESSBUS3" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasADRESSBUS4" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasADRESSBUS5" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasADRESSBUS6" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasADRESSBUS7" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasADRESSBUS8" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasADRESSBUS9" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasADRESSBUS10" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                              </tr>
+  
+                              <tr>
+                                <td><input id="letrasDATABUS1" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDATABUS2" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDATABUS3" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDATABUS4" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDATABUS5" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDATABUS6" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDATABUS7" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDATABUS8" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                              </tr>
+  
+                              <tr>
+                                <td><input id="letrasI51" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasI52" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                              </tr>
+                              
+  
+                              <tr>
+                                <td><input id="letrasI71" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasI72" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                              </tr>
+                              
+                              <tr>
+                                <td><input id="letrasDUALCORE1" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDUALCORE2" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDUALCORE3" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDUALCORE4" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDUALCORE5" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDUALCORE6" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDUALCORE7" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDUALCORE8" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasDUALCORE9" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                              </tr>
+                              
+                              <tr>
+                                <td><input id="letrasQUADCORE1" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasQUADCORE2" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasQUADCORE3" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasQUADCORE4" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasQUADCORE5" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasQUADCORE6" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasQUADCORE7" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasQUADCORE8" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                                <td><input id="letrasQUADCORE9" maxlength="1" oninput="entradaUsuario(this)" /></td>
+                              </tr>        
+  
+                              <div id="divMensagem"></div>
+  
+                            </tbody>
                         </table>
-
-
                     </center>
 
 
@@ -256,3 +255,5 @@
 </body>
 
 </html>
+
+<script src="./script.js"></script>

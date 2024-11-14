@@ -1,170 +1,90 @@
 var special_words = [
-  'CPU', 'ULA', 'Registradores', 'RAM', 'ROM', 'EPROM', 'FLASH', 'Memória de Massa', 
-  'DMA', 'CS', 'Adress Bus', 'Data Bus', 'I5', 'I7', 'Dual Core', 'Quad Core'
+  'CPU', 'ULA', 'REGISTRADORES', 'RAM', 'ROM', 'EPROM', 'FLASH', 'MEMORIA DE MASSA', 
+  'DMA', 'CS', 'ADRESS BUS', 'DATA BUS', 'I5', 'I7', 'DUAL CORE', 'QUAD CORE'
 ];
 
-// Listas separadas para cada palavra
-var respostasCPU = [];
-var respostasULA = [];
-var respostasRegistradores = [];
-var respostasRAM = [];
-var respostasROM = [];
-var respostasEPROM = [];
-var respostasFLASH = [];
-var respostasMemoriaDeMassa = [];
-var respostasDMA = [];
-var respostasCS = [];
-var respostasAdressBus = [];
-var respostasDataBus = [];
-var respostasI5 = [];
-var respostasI7 = [];
-var respostasDualCore = [];
-var respostasQuadCore = [];
+var respostas = {}; 
 
-document.addEventListener("keydown", (e) => {
-  if(e.key == "Backspace"){
-    if(e.target.id.includes("letrasCPU")){
-      var idInput = Number(e.target.id.split('letrasCPU')[1]);  
-      var idAnterior = idInput - 1;
-      var inputAnterior = document.getElementById(`letrasCPU${idAnterior}`);
-      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
+var acertos = 0;
 
-      if(inputAnterior != null){
-        e.target.value = "";
-        inputAnterior.focus();
-        e.preventDefault();
-      }else{
-        e.target.value = "";
-      }
+// Inicializa a lista de respostas para cada palavra
+for (var index = 0; index < special_words.length; index++) {
+  respostas[special_words[index]] = [];
+}
+
+document.addEventListener("keydown", function(e) {
+  if (e.key == "Backspace") {
+    var input = e.target;
+    var palavra = identificarPalavra(input.id);
+
+    if (palavra == null) {
+      return;
     }
 
-    if(e.target.id.includes("letrasULA")){
-      var idInput = Number(e.target.id.split('letrasULA')[1]);  
-      var idAnterior = idInput - 1;
-      var inputAnterior = document.getElementById(`letrasULA${idAnterior}`);
-      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
+    // Remove os espaços manualmente
+    var palavraSemEspacos = removerEspacos(palavra);
+    var idInput = Number(input.id.replace(`letras${palavraSemEspacos}`, ''));
+    var idAnterior = idInput - 1;
+    var inputAnterior = document.getElementById(`letras${palavraSemEspacos}${idAnterior}`);
 
-      if(inputAnterior != null){
-        e.target.value = "";
-        inputAnterior.focus();
-        e.preventDefault();
-      }else{
-        e.target.value = "";
-      }
-    }
-
-    if(e.target.id.includes("letrasRegistradores")){
-      var idInput = Number(e.target.id.split('letrasRegistradores')[1]);  
-      var idAnterior = idInput - 1;
-      var inputAnterior = document.getElementById(`letrasRegistradores${idAnterior}`);
-      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
-
-      if(inputAnterior != null){
-        e.target.value = "";
-        inputAnterior.focus();
-        e.preventDefault();
-      }else{
-        e.target.value = "";
-      }
-    }
-
-    if(e.target.id.includes("letrasRAM")){
-      var idInput = Number(e.target.id.split('letrasRAM')[1]);  
-      var idAnterior = idInput - 1;
-      var inputAnterior = document.getElementById(`letrasRAM${idAnterior}`);
-      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
-
-      if(inputAnterior != null){
-        e.target.value = "";
-        inputAnterior.focus();
-        e.preventDefault();
-      }else{
-        e.target.value = "";
-      }
-    }
-
-    if(e.target.id.includes("letrasROM")){
-      var idInput = Number(e.target.id.split('letrasROM')[1]);  
-      var idAnterior = idInput - 1;
-      var inputAnterior = document.getElementById(`letrasROM${idAnterior}`);
-      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
-
-      if(inputAnterior != null){
-        e.target.value = "";
-        inputAnterior.focus();
-        e.preventDefault();
-      }else{
-        e.target.value = "";
-      }
-    }
-
-    if(e.target.id.includes("letrasEPROM")){
-      var idInput = Number(e.target.id.split('letrasEPROM')[1]);  
-      var idAnterior = idInput - 1;
-      var inputAnterior = document.getElementById(`letrasEPROM${idAnterior}`);
-      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
-
-      if(inputAnterior != null){
-        e.target.value = "";
-        inputAnterior.focus();
-        e.preventDefault();
-      }else{
-        e.target.value = "";
-      }
-    }
-
-    if(e.target.id.includes("letrasFLASH")){
-      var idInput = Number(e.target.id.split('letrasFLASH')[1]);  
-      var idAnterior = idInput - 1;
-      var inputAnterior = document.getElementById(`letrasFLASH${idAnterior}`);
-      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
-
-      if(inputAnterior != null){
-        e.target.value = "";
-        inputAnterior.focus();
-        e.preventDefault();
-      }else{
-        e.target.value = "";
-      }
-    }
-
-    if(e.target.id.includes("letrasMemoriaDeMassa")){
-      var idInput = Number(e.target.id.split('letrasMemoriaDeMassa')[1]);  
-      var idAnterior = idInput - 1;
-      var inputAnterior = document.getElementById(`letrasMemoriaDeMassa${idAnterior}`);
-      console.log(`Id anterior: ${inputAnterior.id}, idAtual : ${idInput}, target: ${e.target}`);
-
-      if(inputAnterior != null){
-        e.target.value = "";
-        inputAnterior.focus();
-        e.preventDefault();
-      }else{
-        e.target.value = "";
-      }
+    if (inputAnterior != null) {
+      input.value = "";
+      inputAnterior.focus();
+      e.preventDefault();
+    } else {
+      input.value = "";
     }
   }
 });
 
-// Função para gerenciar as entradas para a palavra "CPU"
-function entradaUsuarioCPU(input) {
-  var idInput = Number(input.id.split('letrasCPU')[1]);
+function entradaUsuario(input) {
+  var palavra = identificarPalavra(input.id);
+  if (palavra == null) {
+    return;
+  }
+
+  // Remove os espaços manualmente
+  var palavraSemEspacos = removerEspacos(palavra);
+  var idInput = Number(input.id.replace(`letras${palavraSemEspacos}`, ''));
   var proximoId = idInput + 1;
-  var listaRespostas = respostasCPU;
-  
+  var listaRespostas = respostas[palavra];
+
   var letra = input.value.toUpperCase();
   listaRespostas[idInput - 1] = letra;
 
-  var proxInput = document.getElementById(`letrasCPU${proximoId}`);
+  console.log(letra);
+
+  var proxInput = document.getElementById(`letras${palavraSemEspacos}${proximoId}`);
   
   if (proxInput == null) {
     var palavraFinal = listaRespostas.join('');
-    var acertou = palavraFinal === special_words[0];
+    var acertou = palavraFinal == palavra;
     console.log(acertou + " " + palavraFinal);
 
     if (acertou) {
-      // document.getElementById("pCPU").style.color = "green";
-    } else {
+      console.log("acertou");
 
+      var palavraSemEspacos = '';
+      for (var index = 0; index < palavra.length; index++) {
+        if(palavra[index] != ' ') { // Verifica se o caractere não é um espaço
+          palavraSemEspacos += palavra[index]; // Adiciona o caractere à nova string
+        }
+      }
+      console.log(palavraSemEspacos)
+      var paragrafo = document.getElementById(`p${palavraSemEspacos}`);
+      if (paragrafo) {
+        paragrafo.classList.add("acertou"); // Marca o parágrafo como correto
+      }
+      acertos++;
+
+      if(acertos == 16){
+        divMensagem.innerHTML = "PARABENS VOCE CONCLUIU A CRUZADINHA!"
+      }
+
+      console.log(palavraFinal);
+    } else {
+      console.log("errou");
+      console.log(palavraFinal);
     }
   } else {
     input.blur();
@@ -172,233 +92,30 @@ function entradaUsuarioCPU(input) {
   }
 }
 
-// Outras funções de entrada podem seguir o mesmo padrão.
+function identificarPalavra(id) {
+  for (var index = 0; index < special_words.length; index++) {
+    var palavra = special_words[index];
 
+    // Remove os espaços manualmente
+    var palavraSemEspacos = removerEspacos(palavra);
 
-
-''// Função para gerenciar as entradas para a palavra "CPU"
-function entradaUsuarioCPU(input) {
-  var idInput = Number(input.id.split('letrasCPU')[1]);
-  var proximoId = idInput + 1;
-  var listaRespostas = respostasCPU;
-  
-  var letra = input.value.toUpperCase();
-  listaRespostas[idInput - 1] = letra;
-
-  var proxInput = document.getElementById(`letrasCPU${proximoId}`);
-  
-  if (proxInput == null) {
-    var palavraFinal = listaRespostas.join('');
-    var acertou = palavraFinal === special_words[0];
-    console.log(acertou + " " + palavraFinal);
-
-    if (acertou) {
-
-    } else {
-
+    if (id.includes(`letras${palavraSemEspacos}`)) {
+      return palavra;
     }
-  } else {
-    input.blur();
-    proxInput.focus();
   }
-}
-// Função para gerenciar as entradas para a palavra "ULA"
-function entradaUsuarioULA(input) {
-  var idInput = Number(input.id.split('letrasULA')[1]);
-  var proximoId = idInput + 1;
-  var listaRespostas = respostasULA;
-  
-  var letra = input.value.toUpperCase();
-  listaRespostas[idInput - 1] = letra;
-
-  var proxInput = document.getElementById(`letrasULA${proximoId}`);
-  
-  if (proxInput == null) {
-    var palavraFinal = listaRespostas.join('');
-    var acertou = palavraFinal === special_words[1];
-    console.log(acertou + " " + palavraFinal);
-
-    if (acertou) {
-
-    } else {
-
-    }
-  } else {  
-    input.blur();
-    proxInput.focus();
-  }
+  return null;
 }
 
-// Função para gerenciar as entradas para a palavra "Registradores"
-function entradaUsuarioRegistradores(input) {
-  var idInput = Number(input.id.split('letrasRegistradores')[1]);
-  var proximoId = idInput + 1;
-  var listaRespostas = respostasRegistradores;
-  
-  var letra = input.value.toUpperCase();
-  listaRespostas[idInput - 1] = letra;
-
-  var proxInput = document.getElementById(`letrasRegistradores${proximoId}`);
-  
-  if (proxInput == null) {
-    var palavraFinal = listaRespostas.join('');
-    var acertou = palavraFinal === special_words[2];
-    console.log(acertou + " " + palavraFinal);
-
-    if (acertou) {
-
-    } else {
-
+// Função para remover espaços manualmente
+function removerEspacos(palavra) {
+  var palavraSemEspacos = '';
+  for (var i = 0; i < palavra.length; i++) {
+    if (palavra[i] != ' ') {
+      palavraSemEspacos += palavra[i];
     }
-  } else {
-    input.blur();
-    proxInput.focus();
   }
+  return palavraSemEspacos;
 }
-
-// Função para gerenciar as entradas para a palavra "RAM"
-function entradaUsuarioRAM(input) {
-  var idInput = Number(input.id.split('letrasRAM')[1]);
-  var proximoId = idInput + 1;
-  var listaRespostas = respostasRAM;
-  
-  var letra = input.value.toUpperCase();
-  listaRespostas[idInput - 1] = letra;
-
-  var proxInput = document.getElementById(`letrasRAM${proximoId}`);
-  
-  if (proxInput == null) {
-    var palavraFinal = listaRespostas.join('');
-    var acertou = palavraFinal === special_words[3];
-    console.log(acertou + " " + palavraFinal);
-
-    if (acertou) {
-
-    } else {
-
-    }
-  } else {
-    input.blur();
-    proxInput.focus();
-  }
-}
-
-// Função para gerenciar as entradas para a palavra "ROM"
-function entradaUsuarioROM(input) {
-  var idInput = Number(input.id.split('letrasROM')[1]);
-  var proximoId = idInput + 1;
-  var listaRespostas = respostasROM;
-  
-  var letra = input.value.toUpperCase();
-  listaRespostas[idInput - 1] = letra;
-
-  var proxInput = document.getElementById(`letrasROM${proximoId}`);
-  
-  if (proxInput == null) {
-    var palavraFinal = listaRespostas.join('');
-    var acertou = palavraFinal === special_words[4];
-    console.log(acertou + " " + palavraFinal);
-
-    if (acertou) {
-
-    } else {
-
-    }
-  } else {
-    input.blur();
-    proxInput.focus();
-  }
-}
-
-// Função para gerenciar as entradas para a palavra "EPROM"
-function entradaUsuarioEPROM(input) {
-  var idInput = Number(input.id.split('letrasEPROM')[1]);
-  var proximoId = idInput + 1;
-  var listaRespostas = respostasEPROM;
-  
-  var letra = input.value.toUpperCase();
-  listaRespostas[idInput - 1] = letra;
-
-  var proxInput = document.getElementById(`letrasEPROM${proximoId}`);
-  
-  if (proxInput == null) {
-    var palavraFinal = listaRespostas.join('');
-    var acertou = palavraFinal === special_words[5];
-    console.log(acertou + " " + palavraFinal);
-
-    if (acertou) {
-
-    } else {
-
-    }
-  } else {
-    input.blur();
-    proxInput.focus();
-  }
-}
-
-// Função para gerenciar as entradas para a palavra "FLASH"
-function entradaUsuarioFLASH(input) {
-  var idInput = Number(input.id.split('letrasFLASH')[1]);
-  var proximoId = idInput + 1;
-  var listaRespostas = respostasFLASH;
-  
-  var letra = input.value.toUpperCase();
-  listaRespostas[idInput - 1] = letra;
-
-  var proxInput = document.getElementById(`letrasFLASH${proximoId}`);
-  
-  if (proxInput == null) {
-    var palavraFinal = listaRespostas.join('');
-    var acertou = palavraFinal === special_words[6];
-    console.log(acertou + " " + palavraFinal);
-
-    if (acertou) {
-
-    } else {
-
-    }
-  } else {
-    input.blur();
-    proxInput.focus();
-  }
-}
-
-// Função para gerenciar as entradas para a palavra "Memória de Massa"
-function entradaUsuarioMemoriaDeMassa(input) {
-  var idInput = Number(input.id.split('letrasMemoriaDeMassa')[1]);
-  var proximoId = idInput + 1;
-  var listaRespostas = respostasMemoriaDeMassa;
-  
-  var letra = input.value.toUpperCase();
-  listaRespostas[idInput - 1] = letra;
-
-  var proxInput = document.getElementById(`letrasMemoriaDeMassa${proximoId}`);
-  
-  if (proxInput == null) {
-    var palavraFinal = listaRespostas.join('');
-    var acertou = palavraFinal === special_words[7];
-    console.log(acertou + " " + palavraFinal);
-
-    if (acertou) {
-
-    } else {
-
-    }
-  } else {
-    input.blur();
-    proxInput.focus();
-  }
-}
-
-// E assim por diante para as demais palavras...
-
-
-
-
-
-
-
 
 function start() {
   div_information.innerHTML  = "";
@@ -408,4 +125,4 @@ function start() {
   container.style.display = "flex";
 
   div_lista.style.display = "flex";
-}''
+}

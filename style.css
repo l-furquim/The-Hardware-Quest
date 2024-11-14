@@ -22,18 +22,6 @@ header h1 {
     text-shadow: 2px 2px 5px rgba(90, 62, 139, 0.2);
 }
 
-#div_perguntas{
-    width: 500px;
-    margin-left: 50px;
-    margin: auto;
-    background-color: #c2a5e4;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
-    color: #fff;
-}
-
 
 #div_information {
     width: 500px;
@@ -54,7 +42,7 @@ header h1 {
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    min-height: 110vh;
     background: linear-gradient(135deg, #c7bfdd, #e8e1f0);
     font-family: 'Poppins', sans-serif;
     color: #333;
@@ -80,6 +68,7 @@ header h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 20px;
     color: #fff;
+    flex-direction: column;
 }
 
 
@@ -123,12 +112,7 @@ table {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-tr {
-    border: 1px solid #c5d2db;
-}
-
 td {
-    border: 1px solid #fcfcfc;
     width: 30px;
     height: 30px;
     text-align: center;
@@ -191,20 +175,36 @@ margin: 5px;
 text-align: center;
 
 }
+#div_questions{
+    display: flex;
+    width: 100%;
+    height: 40%;
+}
 
+tbody{
+    display: flex;
+    height: 100%;
+    flex-direction: column;
+    width: 100%;
+    border: none;
+}
 #div_lista {
-    width: 500px;
-    margin-left: 600px;
+    width: 80%;
     letter-spacing: 0.3vh;
     align-items: center;
+    margin-right: 100px;
     background-color: #c2a5e4;
     border-radius: 15px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     font-size: 12px;
-    color: #fff;
-    height: 100vh;
+    height: 100%;
+    justify-content: center;
     flex-direction: column;
+    margin-bottom: 70px;
+    margin-left: 50px;
+    font-weight: bolder;
+    color: #ffffff;
 }
 .p-pergunta {
     font-size: 3px;
@@ -236,14 +236,14 @@ table {
     font-size: 25px;
     margin: 20px auto;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: none;
 }
 
 tr {
-    border: 1px solid #c5d2db;
+    border: none;
 }
 
 td {
-    border: 1px solid #fcfcfc;
     width: 30px;
     height: 30px;
     text-align: center;
@@ -283,6 +283,9 @@ td {
 
 .tabela-letras {
     border: none;
+    display: flex;
+    height: 100%;
+    width: 100%;
 }
 
 .tabela-letras input {
@@ -307,20 +310,6 @@ text-align: center;
 
 }
 
-#div_lista {
-    width: 92%;
-    height: 100vh;
-    letter-spacing: 0.3vh;
-    align-items: center;
-    background-color: #c2a5e4;
-    border-radius: 15px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    font-size: 18px;
-    color: #fff;
-    margin: 0;
-    display: flex;
-}
 #div_lista p{
     margin-top: 6vh;
     font-size: 17px;
@@ -340,4 +329,14 @@ text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.acertou {
+    color: green !important;
+}
+#divMensagem{
+    margin-bottom: 20px;
+    font-weight: bolder;
+    font-size: 22px;
+    color: green;
 }
